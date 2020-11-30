@@ -16,6 +16,7 @@ To build this project you will need:
 * [OpenNI2](https://s3.amazonaws.com/com.occipital.openni/OpenNI-Windows-x64-2.2.0.33.zip) 
 
 * Point Cloud Library ([PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)) 
+
 Install PCL as you wish, just don't install OpenNI2 at this stage
 
 
