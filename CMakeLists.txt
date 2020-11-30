@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-project(visibleBinSceneMaker)
+project(binPickingSceneMaker)
+
+add_subdirectory(include)
 
 #FIND_PACKAGE(BOOST REQUIRED)
 FIND_PACKAGE(PCL REQUIRED)
