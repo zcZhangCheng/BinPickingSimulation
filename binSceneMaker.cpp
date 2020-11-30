@@ -572,7 +572,7 @@ int main(int argc, char* argv[])
 	//
 
 	// make save_cloud and output transforms
-	const pcl::PointCloud<pcl::PointXYZ>::Ptr save_cloud(new pcl::PointCloud<pcl::PointXYZ>());
+	pcl::PointCloud<pcl::PointXYZ>::Ptr save_cloud(new pcl::PointCloud<pcl::PointXYZ>());
 
 	for (int idx = 0; idx < dynamicsWorld->getNumCollisionObjects(); idx++)
 	{
@@ -626,10 +626,15 @@ int main(int argc, char* argv[])
 	delete dispatcher;
 	delete config;
 
+	pcl::transformPointCloud(*save_cloud, *save_cloud, Eigen::Vector3f(0, 0, 0), Eigen::Quaternionf(0.7071, -0.7071, 0, 0));
+	pcl::transformPointCloud(*save_cloud, *save_cloud, Eigen::Vector3f(0, 0, 0.5), Eigen::Quaternionf(1, 0, 0, 0));
+	std::vector<float> camera_pos = { 0, 0, 0};
+	HPR(save_cloud, camera_pos, 3, save_cloud);
 	// visualize
 	if (setting.visualization)
 	{
 		pcl::visualization::PCLVisualizer::Ptr viewer_scene(new pcl::visualization::PCLVisualizer("Bin Scene"));
+		viewer_scene->setCameraPosition(0, 0, 0,      0, 0, 0.4,     0, -1, 0);
 		viewer_scene->addPointCloud(save_cloud);
 
 		while (true)
