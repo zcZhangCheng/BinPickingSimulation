@@ -72,7 +72,7 @@ public:
 		downsample_factor(1.2),
 		visualization(true),
 		capture_screenshots(false),
-		load_model_path("../data/6018.ply")
+		load_model_path("../data/6018.STL")
 	{}
 };
 
@@ -103,10 +103,10 @@ int main(int argc, char* argv[])
 	}
 	else if (boost::filesystem::path(setting.load_model_path).extension() == ".STL" || boost::filesystem::path(setting.load_model_path).extension() == ".stl")
 	{
-		std::string model_filename_ = setting.load_model_path.toStdString();
+		std::string model_filename_ = setting.load_model_path;
 		//std::cout << "Loading mesh..." << std::endl;
 		pcl::PointCloud<pcl::PointXYZ>::Ptr model_sampling(new pcl::PointCloud<pcl::PointXYZ>());
-		model_load.reset(new pcl::PointCloud<pcl::PointXYZ>());
+		//model_load.reset(new pcl::PointCloud<pcl::PointXYZ>());
 		meshSampling(model_filename_, 1000000, 0.001f, false, model_sampling);
 
 		//------------------------- Calculate MEAM --------------------------------------------
@@ -159,7 +159,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		error_exit("PLY, STL or PCD file are only available to load.");
+		//error_exit("PLY, STL or PCD file are only available to load.");
 	}
 
 	// centering
@@ -233,7 +233,7 @@ int main(int argc, char* argv[])
 	std::cout << "Normal Estimation: Finished." << std::endl;
 
 	// construct polygon mesh
-	pcl::PolygonMesh poly_mesh;
+	pcl::PolygonMesh poly_mesh, poly_mesh_viewer;
 	pcl::GreedyProjectionTriangulation<pcl::PointNormal> gpt;
 	gpt.setSearchRadius(100.0);
 	gpt.setMu(2.5);
@@ -246,14 +246,23 @@ int main(int argc, char* argv[])
 	gpt.setSearchMethod(kdtree_model_normal);
 	gpt.reconstruct(poly_mesh);
 	std::cout << "PolyMesh Construct: Finished." << std::endl;
-	
+	//load the polygon mesh directly if the file suffix is .STL
+	if (boost::filesystem::path(setting.load_model_path).extension() == ".STL" || boost::filesystem::path(setting.load_model_path).extension() == ".stl")
+	{
+		pcl::io::loadPolygonFileSTL(setting.load_model_path, poly_mesh_viewer);
+	}
+	else 
+	{
+		poly_mesh_viewer = poly_mesh;
+	}
+
 	//visualize polygon
 	boost::optional<pcl::visualization::PCLVisualizer::Ptr> polygon_viewer;
 
 	if (setting.visualization)
 	{
 		polygon_viewer = pcl::visualization::PCLVisualizer::Ptr(new pcl::visualization::PCLVisualizer("Polygon"));
-		(*polygon_viewer)->addPolygonMesh(poly_mesh);
+		(*polygon_viewer)->addPolygonMesh(poly_mesh_viewer);
 
 		(*polygon_viewer)->spinOnce();
 	}
