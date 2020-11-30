@@ -1,4 +1,4 @@
-project(binPickingSceneMaker)
+project(BinPickingSimulation)
 
 find_package(PCL 1.2 REQUIRED)
 

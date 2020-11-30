@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-project(binPickingSceneMaker)
+project(BinPickingSimulation)
 
 add_subdirectory(include)
 

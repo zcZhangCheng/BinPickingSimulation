@@ -1,4 +1,4 @@
-project(binPickingSceneMaker)
+project(BinPickingSimulation)
 
 set(HPR_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "")
 
