@@ -14,7 +14,7 @@ To build this project you will need:
 * Visual Studio 2017
 
 * Point Cloud Library (PCL 1.9.1) 
-[!PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)
+[PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)
 
 * cmake 3.18.5
 
