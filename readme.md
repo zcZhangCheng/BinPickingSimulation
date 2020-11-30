@@ -15,8 +15,11 @@ To build this project you will need:
 
 * Point Cloud Library ([PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)) 
 
+* [OpenNI2](https://s3.amazonaws.com/com.occipital.openni/OpenNI-Windows-x64-2.2.0.33.zip) 
 
 * cmake 3.18.5
+
+* Bullet3 (which is already compile with the project)
 
 
 
