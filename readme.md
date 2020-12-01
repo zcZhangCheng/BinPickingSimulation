@@ -34,7 +34,7 @@ Install PCL as you wish, just don't install OpenNI2 at this stage
 To build this project you will need:
 
 * Point Cloud Library ([PCL](https://pointclouds.org/downloads/#linux)) 
-
+    ```
     $ sudo apt install libpcl-dev
 
 * cmake
