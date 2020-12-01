@@ -9,6 +9,9 @@ This program helps to construct 3D recognition algorithms for the bin picking ba
 The project takes a .STL mesh model as an input, then it will create a synthetic scene using [Point Cloud Library(PCL)](http://pointclouds.org/) for pointcloud processing and [Bullet Physics](http://bulletphysics.org/wordpress/) for physics simulation.
 
 ### Requirements
+
+
+# Windows
 To build this project you will need:
 
 * Visual Studio 2017
@@ -26,5 +29,14 @@ Install PCL as you wish, just don't install OpenNI2 at this stage
 
 * Bullet3 (which is already compiled with the project)
 
+# Linux
+
+To build this project you will need:
+
+* Point Cloud Library ([PCL](https://pointclouds.org/downloads/#linux)) 
+
+* cmake
+
+* Bullet3 (which is already compiled with the project)
 
 
