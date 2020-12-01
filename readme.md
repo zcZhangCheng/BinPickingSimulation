@@ -10,25 +10,6 @@ The project takes a .STL mesh model as an input, then it will create a synthetic
 
 # Requirements
 
-
-## Windows
-To build this project you will need:
-
-* Visual Studio 2017
-
-* [OpenNI2](https://s3.amazonaws.com/com.occipital.openni/OpenNI-Windows-x64-2.2.0.33.zip) 
-
-* Point Cloud Library ([PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)) 
-
-Install PCL as you wish, just don't install OpenNI2 at this stage
-
-
-![Result](https://github.com/ktgiahieu/BinPickingSimulation/blob/main/images/PCL.png)
-
-* cmake 3.18.5
-
-* Bullet3 (which is already compiled with the project)
-
 ## Linux
 
 To build this project you will need:
@@ -49,4 +30,23 @@ To build this project you will need:
     cmake ..
     make
     ./binSceneMaker
+```
 
+
+## Windows
+To build this project you will need:
+
+* Visual Studio 2017
+
+* [OpenNI2](https://s3.amazonaws.com/com.occipital.openni/OpenNI-Windows-x64-2.2.0.33.zip) 
+
+* Point Cloud Library ([PCL 1.9.1](https://github.com/PointCloudLibrary/pcl/releases/download/pcl-1.9.1/PCL-1.9.1-AllInOne-msvc2017-win64.exe)) 
+
+Install PCL as you wish, just don't install OpenNI2 at this stage
+
+
+![Result](https://github.com/ktgiahieu/BinPickingSimulation/blob/main/images/PCL.png)
+
+* cmake 3.18.5
+
+* Bullet3 (which is already compiled with the project)
