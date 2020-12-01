@@ -40,3 +40,11 @@ To build this project you will need:
 * Bullet3 (which is already compiled with the project)
 
 
+### Compile and run
+```
+    mkdir build
+    cd build
+    cmake ..
+    make
+    ./binSceneMaker
+
