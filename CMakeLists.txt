@@ -4,16 +4,21 @@ project(BinPickingSimulation)
 
 add_subdirectory(include)
 
-#FIND_PACKAGE(BOOST REQUIRED)
 FIND_PACKAGE(PCL REQUIRED)
-find_package(Bullet CONFIG REQUIRED HINTS "bullet3\\share\\bullet3")
+
+if (WIN32)
+    find_package(Bullet CONFIG REQUIRED HINTS "bullet3\\share\\bullet3")
+elseif(UNIX AND NOT APPLE)
+    find_package(Bullet CONFIG REQUIRED HINTS "bullet3_linux\\share\\bullet3")
+endif ()
+
 FIND_PACKAGE(OpenMP)
 FIND_PACKAGE(CUDA)
 
 # For bullet lib. You may need to modify here.
 SET(__BULLET_INCLUDE_DIRS "${BULLET_INCLUDE_DIRS}; ${BULLET_INCLUDE_DIRS}/bullet/")
 SET(__BULLET_LIBRARY_DIRS "${BULLET_INCLUDE_DIRS}/../lib")
-SET(__BULLET_LIBRARIES "${BULLET_LIBRARIES};optimized;;debug;BulletCollision_Debug;optimized;BulletDynamics;debug;BulletDynamics_Debug;optimized;BulletInverseDynamics;debug;BulletInverseDynamics_Debug;optimized;HACD;debug;HACD_Debug")
+SET(__BULLET_LIBRARIES "${BULLET_LIBRARIES};optimized;LinearMath;optimized;BulletDynamics;optimized;BulletCollision;optimized;BulletInverseDynamics;optimized;HACD")
 
 
 
