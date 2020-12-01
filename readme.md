@@ -35,6 +35,8 @@ To build this project you will need:
 
 * Point Cloud Library ([PCL](https://pointclouds.org/downloads/#linux)) 
 
+    $ sudo apt install libpcl-dev
+
 * cmake
 
 * Bullet3 (which is already compiled with the project)
